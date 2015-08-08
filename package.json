@@ -1,0 +1,17 @@
+{
+  "name": "cherrytree-for-react",
+  "version": "1.0.0",
+  "description": "An adapter for cherrytree router for using it with React",
+  "main": "./lib/cherrytreeForReact",
+  "scripts": {
+    "test": "standard"
+  },
+  "author": "Karolis Narkevicius <karolis.n@gmail.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "standard": "^5.0.2"
+  }
+}
