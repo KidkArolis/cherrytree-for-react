@@ -4,6 +4,8 @@
   "description": "An adapter for cherrytree router for using it with React",
   "main": "./lib/cherrytreeForReact",
   "scripts": {
+    "build": "./tasks/build.sh",
+    "release": "release --build",
     "test": "standard"
   },
   "author": "Karolis Narkevicius <karolis.n@gmail.com>",
@@ -12,6 +14,14 @@
     "react": "^0.13.3"
   },
   "devDependencies": {
+    "babel": "^5.8.21",
+    "bro-size": "^1.0.0",
+    "kn-release": "kidkarolis/kn-release",
     "standard": "^5.0.2"
+  },
+  "standard": {
+    "ignore": [
+      "build/**"
+    ]
   }
 }
