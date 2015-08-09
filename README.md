@@ -10,7 +10,7 @@ Use the [cherrytree](https://github.com/QubitProducts/cherrytree) router in your
 import React from 'react'
 
 import createCherrytree from 'cherrytree'
-import { Router } from 'cherrytree-for-react'
+import { Router, Link } from 'cherrytree-for-react'
 import * as components from './components'
 
 import { Provider } from 'redux/react'
@@ -71,6 +71,34 @@ let url = this.context.router.generate('repo', {username: 'facebook', repo: 'rea
 ```
 
 Browse [cherrytree](https://github.com/QubitProducts/cherrytree) repo for more docs and examples.
+
+## Generating Links
+
+`<Link>` components are used to create an `<a>` element that links to a route.
+
+Import first
+
+```js
+import { Link } from 'cherrytree-for-react'
+```
+
+For example, assuming you have the following route:
+
+```js
+route('showPost', {path: '/posts/:postID', component: Post})
+```
+
+You could use the following component to link to that route:
+
+```js
+<Link to='showPost' params={{ postId: post.id }} query={{ show: true }} />
+```
+
+To create a link with full (external or local) url, use the `href` attribute instead
+
+```js
+<Link href={`/posts/${post.id}`} />
+```
 
 ## Server Side Usage
 
