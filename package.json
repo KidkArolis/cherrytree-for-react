@@ -1,6 +1,6 @@
 {
   "name": "cherrytree-for-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An adapter for cherrytree router for using it with React",
   "main": "./lib/cherrytreeForReact",
   "scripts": {
