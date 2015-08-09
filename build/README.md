@@ -10,7 +10,7 @@ Use the [cherrytree](https://github.com/QubitProducts/cherrytree) router in your
 import React from 'react'
 
 import createCherrytree from 'cherrytree'
-import { Router } from 'cherrytree-for-react'
+import { Router, Link } from 'cherrytree-for-react'
 import * as components from './components'
 
 import { Provider } from 'redux/react'
@@ -72,6 +72,34 @@ let url = this.context.router.generate('repo', {username: 'facebook', repo: 'rea
 
 Browse [cherrytree](https://github.com/QubitProducts/cherrytree) repo for more docs and examples.
 
+## Generating Links
+
+`<Link>` components are used to create an `<a>` element that links to a route.
+
+Import first
+
+```js
+import { Link } from 'cherrytree-for-react'
+```
+
+For example, assuming you have the following route:
+
+```js
+route('showPost', {path: '/posts/:postID', component: Post})
+```
+
+You could use the following component to link to that route:
+
+```js
+<Link to='showPost' params={{ postId: post.id }} query={{ show: true }} />
+```
+
+To create a link with full (external or local) url, use the `href` attribute instead
+
+```js
+<Link href={`/posts/${post.id}`} />
+```
+
 ## Server Side Usage
 
 This component can also be used in the server side, in that case, an already started cherrytree
@@ -89,8 +117,9 @@ not call the asynchronous listen function.
 
 For a full, working server side example, see the [cherrytree/examples/server-side-example](https://github.com/QubitProducts/cherrytree/tree/master/examples/server-side-react).
 
-## WIP
+## Examples
 
-This repo was just created and is a work in progress. The code is in es6 atm and so you'll need to have a compilation pipeline if you want to use this lib. I just haven't spent the time of setting up the prenpm compilation for this one. Do you have a good boilerplate?
+There are currently two examples:
 
-A full working redux + react + cherrytree + hot reloading example is also coming soon.
+* a purely server side express app using `cherrytree-for-react` can be found over at [cherrytree/examples/server-side-react](https://github.com/QubitProducts/cherrytree/tree/master/examples/server-side-react)
+* a client side redux + react + cherrytree + hot reloading example over at [KidkArolis/cherrytree-redux-react-example](https://github.com/KidkArolis/cherrytree-redux-react-example)

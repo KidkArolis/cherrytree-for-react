@@ -32,7 +32,7 @@ function createRouter() {
         router: this.props.router,
         routes: this.props.router.state.routes || [],
         params: this.props.router.state.routes || {},
-        search: this.props.router.state.search || {},
+        query: this.props.router.state.query || {},
         // hacky?
         routerAlreadyStarted: !!this.props.router.state.routes
       };
@@ -75,7 +75,7 @@ function createRouter() {
       var _state = this.state;
       var routes = _state.routes;
       var params = _state.params;
-      var search = _state.search;
+      var query = _state.query;
 
       return routes.reduceRight(function (element, route) {
         if (!route.options.component) {
@@ -83,7 +83,7 @@ function createRouter() {
         } else {
           return (0, _react.createElement)(route.options.component, {
             params: params,
-            search: search,
+            query: query,
             children: element
           });
         }
