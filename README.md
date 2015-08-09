@@ -89,8 +89,9 @@ not call the asynchronous listen function.
 
 For a full, working server side example, see the [cherrytree/examples/server-side-example](https://github.com/QubitProducts/cherrytree/tree/master/examples/server-side-react).
 
-## WIP
+## Examples
 
-This repo was just created and is a work in progress. The code is in es6 atm and so you'll need to have a compilation pipeline if you want to use this lib. I just haven't spent the time of setting up the prenpm compilation for this one. Do you have a good boilerplate?
+There are currently two examples:
 
-A full working redux + react + cherrytree + hot reloading example is also coming soon.
+* a purely server side express app using `cherrytree-for-react` can be found over at [cherrytree/examples/server-side-react](https://github.com/QubitProducts/cherrytree/tree/master/examples/server-side-react)
+* a client side redux + react + cherrytree + hot reloading example over at [KidkArolis/cherrytree-redux-react-example](https://github.com/KidkArolis/cherrytree-redux-react-example)
