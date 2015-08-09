@@ -72,6 +72,23 @@ let url = this.context.router.generate('repo', {username: 'facebook', repo: 'rea
 
 Browse [cherrytree](https://github.com/QubitProducts/cherrytree) repo for more docs and examples.
 
+## Server Side Usage
+
+This component can also be used in the server side, in that case, an already started cherrytree
+instance needs to be passed in, e.g.
+
+```js
+// start listening
+cherrytree.listen(new cherrytree.MemoryLocation('/foo/bar')).then(function () {
+  React.renderToString(<Router router={cherrytree} />)
+})
+```
+
+In this case, the `<Router>` component will detect that the router has already been started and will
+not call the asynchronous listen function.
+
+For a full, working server side example, see the [cherrytree/examples/server-side-example](https://github.com/QubitProducts/cherrytree/tree/master/examples/server-side-react).
+
 ## WIP
 
 This repo was just created and is a work in progress. The code is in es6 atm and so you'll need to have a compilation pipeline if you want to use this lib. I just haven't spent the time of setting up the prenpm compilation for this one. Do you have a good boilerplate?
