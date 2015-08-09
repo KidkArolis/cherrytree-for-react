@@ -60,7 +60,7 @@ function createLink() {
         var href = _props.href;
 
         if (href) {
-          props.href = href;
+          props.href = router.location.formatUrl(href);
         } else {
           props.href = router.generate(to, params, query);
         }
