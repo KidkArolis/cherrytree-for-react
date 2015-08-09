@@ -16,7 +16,7 @@
   "devDependencies": {
     "babel": "^5.8.21",
     "bro-size": "^1.0.0",
-    "kn-release": "kidkarolis/kn-release",
+    "kn-release": "^1.0.0",
     "standard": "^5.0.2"
   },
   "standard": {
