@@ -117,6 +117,10 @@ not call the asynchronous listen function.
 
 For a full, working server side example, see the [cherrytree/examples/server-side-example](https://github.com/QubitProducts/cherrytree/tree/master/examples/server-side-react).
 
+## Why not a cherrytree middleware?
+
+The typical extension point for cherrytree is the middleware mechanism. However, wrapping cherrytree in a React component is what enables the hot reloading functionality. A new cherrytree instance can be swapped in via the prop into the router during the hot reloads. The router is then kept in the component state meaning we have a reference to the old instance and can clean up using cherrytree.destroy() between the hot reloads. The middleware is still used as a way to update the state of the Router component that triggers the rerender.
+
 ## Examples
 
 There are currently two examples:
