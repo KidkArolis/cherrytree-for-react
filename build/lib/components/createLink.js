@@ -5,7 +5,13 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports['default'] = createLink;
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 var _react = require('react');
+
+var _reactLibObjectAssign = require('react/lib/Object.assign');
+
+var _reactLibObjectAssign2 = _interopRequireDefault(_reactLibObjectAssign);
 
 var object = _react.PropTypes.object;
 var string = _react.PropTypes.string;
@@ -48,7 +54,7 @@ function createLink() {
     render: function render() {
       var router = this.context.router;
 
-      var props = Object.assign({}, this.props);
+      var props = (0, _reactLibObjectAssign2['default'])({}, this.props);
 
       // Ignore if rendered outside of the context of a
       // router, simplifies unit testing.
