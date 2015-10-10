@@ -30,10 +30,10 @@ const redux = createRedux(createDispatcher(composeStores(stores)))
 const cherrytree = createCherrytree()
   .map(routes)
   .use(function redirect (transition) {
-    transition.routes.map(route => {
-      if (route.options.redirect)
-        cherrytree.replaceWith.apply(cherrytree, route.options.redirect)
-    })
+    let lastRoute = transition.routes[transition.routes.length - 1]
+    if (lastRoute.options.redirect) {
+      cherrytree.replaceWith.apply(cherrytree, lastRoute.options.redirect)
+    }
   })
   .use(function error (transition) {
     transition.catch(err => console.error(err.stack))
@@ -50,13 +50,13 @@ export default class App extends React.Component {
 }
 
 function routes (route) {
-  route('app', { path: '/', component: Application }, () => {
+  let home = ['user', { username: 'KidkArolis' }]
+  route('app', { path: '/', redirect: home, component: Application }, () => {
     route('about', { path: 'about', component: About })
     route('stargazers', { path: 'stargazers', component: GithubStargazers }, () => {
       route('repo', { path: ':username/:repo', component: GithubRepo })
       route('user', { path: ':username', component: GithubUser })
     })
-    route('index', { path: '', redirect: [ 'user', { username: 'KidkArolis' }] })
   })
 }
 ```
