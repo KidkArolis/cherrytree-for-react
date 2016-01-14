@@ -10,9 +10,6 @@
   },
   "author": "Karolis Narkevicius <karolis.n@gmail.com>",
   "license": "ISC",
-  "peerDependencies": {
-    "react": "^0.13.3"
-  },
   "devDependencies": {
     "babel": "^5.8.21",
     "bro-size": "^1.0.0",
