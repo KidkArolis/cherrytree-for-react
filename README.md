@@ -4,7 +4,7 @@ Use the [cherrytree](https://github.com/QubitProducts/cherrytree) router in your
 
 ## Usage
 
-    $ npm install --save cherrytree cherrytree-for-react
+    $ npm install --save react cherrytree cherrytree-for-react
 
 ```js
 import React from 'react'
