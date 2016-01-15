@@ -13,10 +13,6 @@ import createCherrytree from 'cherrytree'
 import { Router, Link } from 'cherrytree-for-react'
 import * as components from './components'
 
-import { Provider } from 'redux/react'
-import { createDispatcher, createRedux, composeStores } from 'redux'
-import * as stores from './stores'
-
 const {
   Application,
   About,
@@ -25,33 +21,18 @@ const {
   GithubUser
 } = components
 
-const redux = createRedux(createDispatcher(composeStores(stores)))
-
-const cherrytree = createCherrytree()
-  .map(routes)
-  .use(function redirect (transition) {
-    let lastRoute = transition.routes[transition.routes.length - 1]
-    if (lastRoute.options.redirect) {
-      cherrytree.replaceWith.apply(cherrytree, lastRoute.options.redirect)
-    }
-  })
-  .use(function error (transition) {
-    transition.catch(err => console.error(err.stack))
-  })
+const cherrytree = createCherrytree().map(routes)
 
 export default class App extends React.Component {
   render () {
     return (
-      <Provider redux={redux}>
-        {() => <Router router={cherrytree} />}
-      </Provider>
+      <Router router={cherrytree} />
     )
   }
 }
 
 function routes (route) {
-  let home = ['user', { username: 'KidkArolis' }]
-  route('app', { path: '/', redirect: home, component: Application }, () => {
+  route('app', { path: '/', component: Application }, () => {
     route('about', { path: 'about', component: About })
     route('stargazers', { path: 'stargazers', component: GithubStargazers }, () => {
       route('repo', { path: ':username/:repo', component: GithubRepo })
@@ -60,8 +41,6 @@ function routes (route) {
   })
 }
 ```
-
-Note: this example demonstrates how you'd use `cherrytree-for-react` with `redux`. If you don't use `redux`, simply use `Router` component at the top level, instead of the `Provider`.
 
 The router will be injected into the context of the render tree. You can use it to generate links or initiate transitions, e.g.
 
