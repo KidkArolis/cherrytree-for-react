@@ -42,9 +42,11 @@ function createRouter() {
       var _this = this;
 
       var render = function render(transition) {
-        return _this.setState({
-          routes: transition.routes,
-          params: transition.params
+        return transition.then(function () {
+          return _this.setState({
+            routes: transition.routes,
+            params: transition.params
+          });
         });
       };
       router.use(render);
