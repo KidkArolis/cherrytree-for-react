@@ -42,7 +42,7 @@ function createRouter() {
       var _this = this;
 
       var render = function render(transition) {
-        return transition.then(function () {
+        transition.then(function () {
           return _this.setState({
             routes: transition.routes,
             params: transition.params
