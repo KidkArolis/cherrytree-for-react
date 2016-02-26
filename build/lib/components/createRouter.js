@@ -45,7 +45,8 @@ function createRouter() {
         transition.then(function () {
           return _this.setState({
             routes: transition.routes,
-            params: transition.params
+            params: transition.params,
+            query: transition.query
           });
         });
       };
