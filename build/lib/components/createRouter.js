@@ -31,7 +31,7 @@ function createRouter() {
       return {
         router: this.props.router,
         routes: this.props.router.state.routes || [],
-        params: this.props.router.state.routes || {},
+        params: this.props.router.state.params || {},
         query: this.props.router.state.query || {},
         // hacky?
         routerAlreadyStarted: !!this.props.router.state.routes
